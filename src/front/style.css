@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFEFF0; /* Light pink background for a soft theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path fill="%23FFC0CB" d="M25 5c-3 0-5 2-7 4-2-2-4-4-7-4-5 0-9 4-9 9 0 5 4 9 9 14 3 3 6 6 10 9 4-3 7-6 10-9 5-5 9-9 9-14 0-5-4-9-9-9-3 0-5 2-7 4-2-2-4-4-7-4z"/></svg>'); /* Heart pattern background */
+}
+
+.container {
+    text-align: center;
+}
+
+.love-button {
+    background-color: #FF6384; /* Lovely pink */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px; /* Rounded edges */
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 14px rgba(255, 99, 132, 0.4); /* Soft shadow for depth */
+    transition: all 0.3s ease;
+}
+
+.love-button:hover {
+    background-color: #FF82A9; /* Lighter pink on hover */
+    box-shadow: 0 6px 16px rgba(255, 99, 132, 0.6); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
