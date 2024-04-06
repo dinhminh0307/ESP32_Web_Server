@@ -10,7 +10,5 @@ buttonClick.addEventListener("click", () => {
         },
         body: JSON.stringify({ message: 'Button clicked!' }),
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch((error) => console.error('Error:', error));
+    
 })
