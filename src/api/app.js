@@ -8,19 +8,22 @@
 
 const fetch = require('node-fetch');
 
-module.exports = async (req, res) => {
-    if (req.method === 'POST') {
-        try {
-            // Replace 'http://esp32.local/signal' with the actual URL of your ESP32 server
-            const esp32Response = await fetch('http://esp32.local/signal', { method: 'POST' });
-            const esp32Data = await esp32Response.json();
+// /api/send-signal.js
+let signal = false; // This flag should be stored in a database for persistence
 
-            res.json({ message: 'Signal received successfully!', esp32Data });
-        } catch (error) {
-            console.error('Error sending signal to ESP32:', error);
-            res.status(500).json({ error: 'Failed to send signal to ESP32' });
+module.exports = (req, res) => {
+    if (req.method === 'POST') {
+        signal = true; // Set the flag when the browser button is clicked
+        return res.json({ message: 'Signal received. Awaiting ESP32 pickup.' });
+    } else if (req.method === 'GET') {
+        // ESP32 polls this endpoint
+        if (signal) {
+            signal = false; // Reset the flag
+            return res.json({ signal: true });
+        } else {
+            return res.json({ signal: false });
         }
-    } else {
-        res.status(405).send('Method Not Allowed');
     }
+    return res.status(405).send('Method Not Allowed');
 };
+
