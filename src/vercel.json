@@ -1,9 +1,8 @@
 {
     "version": 2,
-    "builds": [
-      { "src": "./backend/api/button-clicked.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/backend/(*.)", "dest": "/" }
-    ]
+    "functions": {
+      "api/button-clicked.js": {
+        "runtime": "nodejs12.x" 
+      }
+    }
   }
