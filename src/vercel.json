@@ -1,8 +1,0 @@
-{
-    "version": 2,
-    "functions": {
-      "api/button-clicked.js": {
-        "runtime": "nodejs18.14.2" 
-      }
-    }
-  }
