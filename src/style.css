@@ -13,7 +13,7 @@ body {
     text-align: center;
 }
 
-.love-button {
+#love-button {
     background-color: #FF6384; /* Lovely pink */
     color: white;
     padding: 15px 30px;
