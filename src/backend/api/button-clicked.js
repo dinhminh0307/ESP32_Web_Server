@@ -11,11 +11,14 @@ module.exports = (req, res) => {
 
         req.on('end', () => {
             buffer += decoder.end();
-            console.log('Button click signal received:', buffer); // Log the received data
+            console.log('Button click signal received:', buffer);
 
             // Respond to the client
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'Signal received successfully!' }));
         });
+    } else {
+        res.writeHead(405, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Method Not Allowed' }));
     }
 };
