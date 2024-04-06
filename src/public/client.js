@@ -13,7 +13,7 @@
 
 document.getElementById('sendSignal').addEventListener('click', async () => {
     try {
-        const response = await fetch('/api/send-signal', {
+        const response = await fetch('/api/app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ signal: 'blink' }) // Example payload
