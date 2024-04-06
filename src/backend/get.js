@@ -58,32 +58,16 @@
 
 const express = require('express');
 const app = express();
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const port = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '../public/index.html'); // Serve the main HTML page
+app.post('/signal', (req, res) => {
+    // This is where you handle the signal sent from the client
+    console.log('Signal received from the client');
+    res.json({ message: 'Signal received successfully!' });
 });
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
-
-  // Listen for the 'buttonPressed' event from the client
-  socket.on('buttonPressed', () => {
-    console.log('Button was pressed, acknowledging...');
-
-    // Respond back to the client
-    socket.emit('acknowledgePress', { message: 'Button press acknowledged' });
-  });
-
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-});
-
-http.listen(3000, () => {
-  console.log('Listening on *:3000');
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });

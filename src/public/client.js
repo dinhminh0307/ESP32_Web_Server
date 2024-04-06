@@ -1,10 +1,12 @@
-const buttonClick = document.getElementById("love-button");
-var socket = io();
-buttonClick.addEventListener("click", () => {
-    console.log('button was clicked');
-   // Establish a connection to the server
-   socket.emit('buttonPressed');
-   console.log('Signal sent to server');
-
-    // Function to send a signal to the server
-})
+document.getElementById('sendSignal').addEventListener('click', () => {
+    fetch('/signal', {
+        method: 'POST',
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
