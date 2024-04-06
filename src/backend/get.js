@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify({ message: 'Signal received successfully!' }));
         });
     }  else {
-        let filePath = path.join(__dirname, '..', req.url === '/' ? 'index.html' : req.url);
+        let filePath = path.join(__dirname, '..', '/', 'public', req.url === '/' ? 'index.html' : req.url.substring(1));
         // Determine content type
         let contentType = 'text/html';
         const ext = path.extname(filePath);
