@@ -1,15 +1,10 @@
 const buttonClick = document.getElementById("love-button");
+var socket = io();
 buttonClick.addEventListener("click", () => {
     console.log('button was clicked');
-    // Send a POST request to the server
-    fetch('/button-clicked', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: 'Button clicked!' }),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch((error) => console.error('Error:', error));
+   // Establish a connection to the server
+   socket.emit('buttonPressed');
+   console.log('Signal sent to server');
+
+    // Function to send a signal to the server
 })
