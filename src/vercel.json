@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
       "api/button-clicked.js": {
-        "runtime": "nodejs12.x" 
+        "runtime": "nodejs18.14.2" 
       }
     }
   }
