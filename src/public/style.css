@@ -1,32 +1,39 @@
+/* style.css */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #FFEFF0; /* Light pink background for a soft theme */
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path fill="%23FFC0CB" d="M25 5c-3 0-5 2-7 4-2-2-4-4-7-4-5 0-9 4-9 9 0 5 4 9 9 14 3 3 6 6 10 9 4-3 7-6 10-9 5-5 9-9 9-14 0-5-4-9-9-9-3 0-5 2-7 4-2-2-4-4-7-4z"/></svg>'); /* Heart pattern background */
+    background-color: #fff0f5; /* A soft pink background */
+    margin: 0;
+    background-image: radial-gradient(circle at 5% 5%, #ffc0cb 1.5%, transparent 1.6%),
+                      radial-gradient(circle at 95% 5%, #ffc0cb 1.5%, transparent 1.6%),
+                      radial-gradient(circle at 5% 95%, #ffc0cb 1.5%, transparent 1.6%),
+                      radial-gradient(circle at 95% 95%, #ffc0cb 1.5%, transparent 1.6%);
+    background-size: 30px 30px;
 }
 
-.container {
-    text-align: center;
-}
-
-#love-button {
-    background-color: #FF6384; /* Lovely pink */
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 30px; /* Rounded edges */
-    cursor: pointer;
+button {
+    padding: 10px 20px;
     font-size: 16px;
-    box-shadow: 0 4px 14px rgba(255, 99, 132, 0.4); /* Soft shadow for depth */
-    transition: all 0.3s ease;
+    color: #fff;
+    background-color: #ff69b4; /* A more vibrant pink for the button */
+    border: none;
+    border-radius: 20px; /* More rounded borders for a softer look */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
 }
 
-.love-button:hover {
-    background-color: #FF82A9; /* Lighter pink on hover */
-    box-shadow: 0 6px 16px rgba(255, 99, 132, 0.6); /* Enhanced shadow on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+button:hover {
+    background-color: #ff1493; /* A deeper pink on hover */
+    transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff69b4; /* Matching the button's vibrant pink */
+    font-weight: bold; /* Makes the text slightly bolder */
 }
