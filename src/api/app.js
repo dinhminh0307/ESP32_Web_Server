@@ -1,8 +1,9 @@
+
 module.exports = (req, res) => {
     if (req.method === 'POST') {
         res.json({ message: 'Signal received successfully!' });
     } else if(req.method === 'GET') {
-        res.json({ message: 'done' });
+        res.status(200).json({ message: 'done' });
     }
      else {
         res.status(405).send('Method Not Allowed');
