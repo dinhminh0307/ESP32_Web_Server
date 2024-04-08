@@ -9,21 +9,23 @@
 //         res.status(405).send('Method Not Allowed');
 //     }
 // };
-
+let signal = 0; // Initialize signal variable outside the request handler.
 module.exports = (req, res) => {
     if (req.method === 'POST') {
+        signal = 1; // Set signal to 1 upon receiving a POST request.
         res.json({ message: 'Signal received successfully!' });
     } else if (req.method === 'GET') {
-        // Check if the request has a query parameter 'type' set to 'esp32'
         if (req.query.type === 'esp32') {
-            // Handle ESP32 polling request
-            res.status(200).json({ message: 'ESP32 polling received.' });
-        } else {
-            // Handle regular browser GET request
-            res.status(200).json({ message: 'done' });
-        }
+            if (signal === 1) {
+                // If the signal is set, send it to the ESP32 and reset the signal
+                res.status(200).json({ signal: 1, message: 'Signal retrieved by ESP32. Signal is now reset.' });
+                signal = 0; // Reset signal after sending
+            } else {
+                // If there is no signal, inform the ESP32 accordingly
+                res.status(200).json({ signal: 0, message: 'No signal for ESP32.' });
+            }
     } else {
         res.status(405).send('Method Not Allowed');
     }
 };
-
+}
